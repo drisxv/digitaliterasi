@@ -1,59 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://laravel.com" target="_blank">
+<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+</a>
 </p>
 
-## About Laravel
+# Sistem Perpustakaan Digital
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini merupakan sistem perpustakaan digital berbasis web yang memungkinkan pengguna untuk melihat, meminjam, membaca, dan memberikan ulasan terhadap buku secara online. Sistem ini memiliki tiga jenis pengguna utama yaitu **Pengguna**, **Petugas**, dan **Admin**, yang masing-masing memiliki hak akses berbeda.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Dokumentasi
 
-## Learning Laravel
+Dokumentasi lengkap aplikasi dapat diunduh melalui link berikut:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+* 📄 [Download Dokumentasi Aplikasi](unfinished_dokumentasi.docx)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+# Fitur Aplikasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 1. Pengguna
 
-### Premium Partners
+Pengguna merupakan user umum yang dapat menggunakan sistem perpustakaan untuk mencari dan meminjam buku.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Alur Pengguna
 
-## Contributing
+1. Pengguna melakukan **registrasi** untuk membuat akun.
+2. Setelah berhasil registrasi, pengguna dapat **login** ke dalam sistem.
+3. Setelah login, pengguna diarahkan ke **halaman daftar buku**.
+4. Pengguna dapat:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   * Melihat daftar buku
+   * Mengklik salah satu buku untuk melihat **detail buku**
+5. Pada halaman **detail buku**, pengguna dapat:
 
-## Code of Conduct
+   * Menambahkan buku ke **favorit**
+   * Menentukan **tanggal peminjaman**
+   * Meminjam buku
+6. Setelah meminjam buku, pengguna dapat:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   * **Membaca isi buku**
+   * Melihat daftar **peminjaman**
+7. Pengguna dapat **mengembalikan buku** melalui:
 
-## Security Vulnerabilities
+   * Halaman detail buku
+   * Halaman daftar peminjaman
+8. Status pengembalian buku:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   * **Dikembalikan** → jika dikembalikan sebelum batas waktu
+   * **Telat Mengembalikan** → jika melewati batas waktu pengembalian
+9. Setelah meminjam buku, pengguna juga dapat **memberikan ulasan** terhadap buku tersebut.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 2. Petugas
+
+Petugas adalah pengguna yang bertugas untuk mengelola data buku dan kategori.
+
+### Alur Petugas
+
+1. Petugas **login menggunakan akun yang dibuat oleh admin**.
+2. Setelah login, petugas dapat mengakses fitur berikut:
+
+### Kelola Kategori
+
+* Menambah kategori buku
+* Mengedit kategori buku
+* Menghapus kategori buku
+
+### Kelola Buku
+
+* Menambah buku
+* Mengedit buku
+* Menghapus buku
+
+Petugas **tidak dapat meminjam buku**.
+
+### Laporan
+
+Petugas dapat:
+
+* Mengakses halaman laporan
+* Melakukan **generate laporan**
+* Menghasilkan laporan dalam bentuk **PDF**
+
+---
+
+## 3. Admin
+
+Admin memiliki akses penuh terhadap sistem.
+
+### Alur Admin
+
+1. Admin melakukan **login** ke dalam sistem.
+2. Admin dapat mengakses beberapa halaman utama:
+
+### Kelola Kategori
+
+* Menambah kategori
+* Mengedit kategori
+* Menghapus kategori
+
+### Kelola Buku
+
+* Menambah buku
+* Mengedit buku
+* Menghapus buku
+
+### Laporan
+
+* Generate laporan
+* Export laporan menjadi **PDF**
+
+### Kelola User
+
+Admin dapat:
+
+* Menambah user
+* Menambah admin
+* Menambah petugas
+* Menambah pengguna
+* Mengubah identitas user
+
+Catatan:
+
+* **Admin tidak dapat mengubah identitas dirinya sendiri**
+
+---
+
+# Role Pengguna
+
+| Role     | Deskripsi                              |
+| -------- | -------------------------------------- |
+| Pengguna | User yang meminjam dan membaca buku    |
+| Petugas  | Mengelola data buku dan kategori       |
+| Admin    | Mengelola seluruh sistem termasuk user |
+
+---
+
+# Teknologi yang Digunakan
+
+* Laravel
+* Livewire
+* Tailwind CSS
+* SQLite / MySQL
+* PDF Generator
+
+---
+
+# Tujuan Aplikasi
+
+Aplikasi ini dibuat untuk mempermudah proses:
+
+* Pencarian buku
+* Peminjaman buku
+* Pengelolaan buku
+* Pengelolaan kategori
+* Pembuatan laporan perpustakaan
