@@ -142,9 +142,8 @@ Catatan:
 # Teknologi yang Digunakan
 
 * Laravel
-* Livewire
 * Tailwind CSS
-* SQLite / MySQL
+* MySQL
 * PDF Generator
 
 ---
