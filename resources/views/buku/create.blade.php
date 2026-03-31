@@ -1,3 +1,14 @@
+{{--
+    Halaman tambah buku.
+
+    Kegunaan:
+    - Menampilkan form input buku baru dan isi buku.
+    - Submit ke route `buku.store`.
+
+    Akses: `admin` dan `petugas`.
+    Data:
+    - $kategoris: daftar kategori.
+--}}
 @extends('layouts.app')
 
 @section('content')

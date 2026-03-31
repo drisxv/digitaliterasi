@@ -1,3 +1,23 @@
+{{--
+        Halaman detail buku.
+
+        Kegunaan:
+        - Menampilkan detail buku (cover, metadata, sinopsis, kategori).
+        - Menampilkan daftar ulasan pembaca dan rata-rata rating.
+        - Aksi berdasarkan level:
+            - `pengguna`: pinjam/kembalikan, toggle favorit, baca isi (jika punya pinjaman aktif).
+            - `admin/petugas`: edit dan hapus buku.
+
+        Route: `buku.show`
+        Data yang umum dipakai:
+        - $buku: model Buku (+ relasi kategori, isiBuku, ulasans)
+        - $averageRating: angka rata-rata rating
+        - $canReadIsi: bool (izin baca isi)
+        - $activeLoan: Peminjaman aktif (opsional)
+        - $hasBorrowed: bool (pernah meminjam)
+        - $isFavorite: bool (sudah difavoritkan)
+        - $userReview: ulasan user terhadap buku (opsional)
+--}}
 @extends('layouts.app')
 
 @section('content')

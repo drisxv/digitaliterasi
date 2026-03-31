@@ -1,3 +1,12 @@
+{{--
+    Halaman tambah pengguna (admin).
+
+    Kegunaan:
+    - Membuat akun baru (admin/petugas/pengguna) lewat form.
+    - Submit ke route `user.store`.
+
+    Akses: `admin`.
+--}}
 @extends('layouts.app')
 
 @section('content')

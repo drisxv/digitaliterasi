@@ -1,3 +1,18 @@
+{{--
+    Partial form buku (dipakai di create & edit).
+
+    Kegunaan:
+    - Field input metadata buku + upload cover + sinopsis.
+    - Mengisi/menyunting isi buku (tabel `isi_buku`) melalui field `isi`.
+    - Jika buku sudah punya isi, menampilkan ID unik isi buku.
+
+    Dipakai oleh:
+    - `buku.create` dan `buku.edit`
+
+    Data:
+    - $buku (opsional): Buku yang sedang diedit
+    - $kategoris: daftar kategori untuk dropdown
+--}}
 @php($buku = $buku ?? null)
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

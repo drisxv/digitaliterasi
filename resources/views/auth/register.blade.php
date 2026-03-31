@@ -1,3 +1,13 @@
+{{--
+    Halaman Register.
+
+    Kegunaan:
+    - Form pendaftaran akun baru (nama, email, username, password, alamat).
+    - Submit ke route `register`.
+    - Link kembali ke halaman login.
+
+    Catatan: level/peran user biasanya ditentukan oleh backend (default pengguna).
+--}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BukuController extends Controller
 {
+    /** Menampilkan daftar buku dengan filter pencarian dan pagination sesuai level user. */
     public function index(Request $request)
     {
         $search = trim((string) $request->string('search'));
@@ -36,6 +37,7 @@ class BukuController extends Controller
         return view('buku.index', compact('bukus'));
     }
 
+    /** Menampilkan detail buku beserta status pinjaman, ulasan, dan akses baca user saat ini. */
     public function show(Buku $buku)
     {
         $buku->load([
@@ -78,6 +80,7 @@ class BukuController extends Controller
         return view('buku.show', compact('buku', 'hasBorrowed', 'canReadIsi', 'userReview', 'averageRating', 'activeLoan', 'isFavorite'));
     }
 
+    /** Menampilkan form tambah buku untuk admin atau petugas. */
     public function create()
     {
         $this->authorizeRole();
@@ -87,6 +90,7 @@ class BukuController extends Controller
         return view('buku.create', compact('kategoris'));
     }
 
+    /** Menyimpan buku baru beserta isi bukunya ke database. */
     public function store(Request $request)
     {
         $this->authorizeRole();
@@ -113,6 +117,7 @@ class BukuController extends Controller
             ->with('success', 'Buku berhasil ditambahkan.');
     }
 
+    /** Menampilkan form edit buku yang dipilih. */
     public function edit(Buku $buku)
     {
         $this->authorizeRole();
@@ -122,6 +127,7 @@ class BukuController extends Controller
         return view('buku.edit', compact('buku', 'kategoris'));
     }
 
+    /** Memperbarui data buku, termasuk cover dan isi buku jika berubah. */
     public function update(Request $request, Buku $buku)
     {
         $this->authorizeRole();
@@ -159,6 +165,7 @@ class BukuController extends Controller
             ->with('success', 'Buku berhasil diperbarui.');
     }
 
+    /** Menghapus buku beserta file cover yang tersimpan. */
     public function destroy(Buku $buku)
     {
         $this->authorizeRole();
@@ -174,6 +181,7 @@ class BukuController extends Controller
             ->with('success', 'Buku berhasil dihapus.');
     }
 
+    /** Memastikan hanya admin atau petugas yang dapat mengelola data buku. */
     private function authorizeRole()
     {
         if (!Auth::check() || !in_array(Auth::user()->level, ['admin', 'petugas'])) {
@@ -181,6 +189,7 @@ class BukuController extends Controller
         }
     }
 
+    /** Memvalidasi input form buku sebelum diproses lebih lanjut. */
     private function validateBuku(Request $request): array
     {
         return $request->validate([
@@ -195,6 +204,7 @@ class BukuController extends Controller
         ]);
     }
 
+    /** Membuat ID unik empat digit untuk relasi isi buku. */
     private function generateUniqueIsiId(): int
     {
         for ($attempt = 0; $attempt < 50; $attempt++) {

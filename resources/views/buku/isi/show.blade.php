@@ -1,3 +1,14 @@
+{{--
+    Halaman baca isi buku.
+
+    Kegunaan:
+    - Menampilkan isi lengkap buku (konten dari relasi `isiBuku`).
+    - Disediakan untuk user yang punya pinjaman aktif (dicek di controller/middleware).
+
+    Route: `buku.isi.show`
+    Data:
+    - $buku: Buku yang sedang dibaca (wajib punya relasi isiBuku)
+--}}
 @extends('layouts.app')
 
 @section('content')

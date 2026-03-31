@@ -1,3 +1,15 @@
+{{--
+    Halaman "Ulasan Saya".
+
+    Kegunaan:
+    - Menampilkan semua ulasan yang dibuat oleh user login.
+    - Setiap item terhubung ke detail buku.
+
+    Route: `ulasan.index`
+    Akses: `pengguna`.
+    Data:
+    - $ulasans: paginator UlasanBuku (umumnya load relasi buku + kategori)
+--}}
 @extends('layouts.app')
 
 @section('content')

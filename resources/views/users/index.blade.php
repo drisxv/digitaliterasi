@@ -1,3 +1,16 @@
+{{--
+    Halaman kelola pengguna (admin).
+
+    Kegunaan:
+    - Menampilkan list user + pencarian `search`.
+    - Aksi: tambah user, edit user, hapus user.
+    - Proteksi UI: tidak menampilkan aksi edit/hapus untuk akun yang sedang login.
+
+    Route: `user.index`
+    Akses: `admin`.
+    Data:
+    - $users: paginator User
+--}}
 @extends('layouts.app')
 
 @section('content')

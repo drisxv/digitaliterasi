@@ -1,3 +1,15 @@
+{{--
+    Halaman daftar kategori buku.
+
+    Kegunaan:
+    - Menampilkan list kategori + pencarian `search`.
+    - Menampilkan jumlah buku per kategori (`bukus_count`).
+    - Aksi: detail, edit, hapus (dengan modal konfirmasi global).
+
+    Route: `kategori.index`
+    Data:
+    - $kategoris: paginator Kategori (umumnya sudah withCount('bukus'))
+--}}
 @extends('layouts.app')
 
 @section('content')

@@ -1,3 +1,17 @@
+{{--
+    Template PDF laporan peminjaman.
+
+    Kegunaan:
+    - Dipakai oleh DOMPDF untuk menghasilkan file PDF dari data peminjaman.
+    - Menampilkan metadata cetak (waktu cetak, keyword pencarian, status filter).
+
+    Route pemanggil: `laporan.pdf`
+    Data:
+    - $pinjamans: collection/paginator Peminjaman
+    - $printedAt: waktu cetak (Carbon)
+    - $search: string keyword
+    - $status: string status filter
+--}}
 <!DOCTYPE html>
 <html lang="id">
 <head>

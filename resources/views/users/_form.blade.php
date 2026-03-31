@@ -1,3 +1,18 @@
+{{--
+        Partial form pengguna (dipakai create & edit).
+
+        Kegunaan:
+        - Input identitas user (nama, username, email, alamat) + level.
+        - Password:
+            - Saat create: wajib diisi.
+            - Saat edit: bisa dikosongkan agar tidak mengubah password.
+
+        Dipakai oleh:
+        - `users.create` dan `users.edit`
+
+        Data:
+        - $user (opsional): User yang diedit
+--}}
 @php($user = $user ?? null)
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

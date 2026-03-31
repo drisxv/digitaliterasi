@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UlasanController extends Controller
 {
+    /** Menampilkan daftar ulasan milik pengguna yang sedang login. */
     public function index()
     {
         $this->authorizePengguna();
@@ -22,6 +23,7 @@ class UlasanController extends Controller
         return view('ulasan.index', compact('ulasans'));
     }
 
+    /** Menyimpan atau memperbarui ulasan buku yang pernah dipinjam pengguna. */
     public function store(Request $request, Buku $buku)
     {
         $this->authorizePengguna();
@@ -50,6 +52,7 @@ class UlasanController extends Controller
             ->with('success', 'Ulasan buku berhasil disimpan.');
     }
 
+    /** Memastikan hanya pengguna level pengguna yang bisa mengakses fitur ulasan. */
     private function authorizePengguna(): void
     {
         if (!Auth::check() || Auth::user()->level !== 'pengguna') {

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PinjamanController extends Controller
 {
+    /** Menampilkan riwayat dan status pinjaman milik pengguna yang sedang login. */
     public function index()
     {
         $this->authorizePengguna();
@@ -22,6 +23,7 @@ class PinjamanController extends Controller
         return view('peminjaman.index', compact('pinjamans'));
     }
 
+    /** Membuat pinjaman baru untuk buku yang memiliki isi dan belum sedang dipinjam user. */
     public function store(Request $request, Buku $buku)
     {
         $this->authorizePengguna();
@@ -60,6 +62,7 @@ class PinjamanController extends Controller
             ->with('success', 'Buku berhasil dipinjam dan siap dibaca.');
     }
 
+    /** Mengubah status pinjaman menjadi dikembalikan atau telat mengembalikan. */
     public function returnBook(Peminjaman $peminjaman)
     {
         $this->authorizePengguna();
@@ -87,6 +90,7 @@ class PinjamanController extends Controller
                 : 'Buku dikembalikan dengan status telat mengembalikan.');
     }
 
+    /** Menampilkan isi buku hanya jika pengguna memiliki pinjaman aktif untuk buku tersebut. */
     public function showIsi(IsiBuku $isiBuku)
     {
         $this->authorizePengguna();
@@ -103,6 +107,7 @@ class PinjamanController extends Controller
         return view('buku.isi.show', compact('buku'));
     }
 
+    /** Memastikan hanya pengguna level pengguna yang dapat mengakses fitur pinjaman. */
     private function authorizePengguna(): void
     {
         if (!Auth::check() || Auth::user()->level !== 'pengguna') {

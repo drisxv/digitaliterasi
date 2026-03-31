@@ -1,3 +1,15 @@
+{{--
+    Halaman edit buku.
+
+    Kegunaan:
+    - Menampilkan form untuk memperbarui data buku dan isi buku.
+    - Submit ke route `buku.update`.
+
+    Akses: `admin` dan `petugas`.
+    Data:
+    - $buku: Buku yang diedit
+    - $kategoris: daftar kategori
+--}}
 @extends('layouts.app')
 
 @section('content')

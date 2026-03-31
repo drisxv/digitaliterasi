@@ -1,3 +1,14 @@
+{{--
+    Layout utama aplikasi (halaman setelah login).
+
+    Kegunaan:
+    - Membungkus semua halaman dashboard dengan sidebar + topbar (mobile).
+    - Menampilkan menu berdasarkan level user: admin/petugas/pengguna.
+    - Menyediakan modal global: konfirmasi hapus (DELETE) dan konfirmasi aksi (pinjam/kembalikan).
+    - Menampilkan flash message (success/error) dan error validasi.
+
+    Dipakai oleh: view yang memakai @extends('layouts.app').
+--}}
 <!DOCTYPE html>
 <html lang="id">
 

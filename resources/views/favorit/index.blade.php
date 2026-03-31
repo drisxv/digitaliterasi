@@ -1,3 +1,15 @@
+{{--
+    Halaman daftar buku favorit.
+
+    Kegunaan:
+    - Menampilkan koleksi pribadi/favorit user yang tersimpan di tabel `koleksi_pribadi`.
+    - Aksi: buka detail buku, dan hapus dari favorit.
+
+    Route: `favorit.index`
+    Akses: `pengguna`.
+    Data:
+    - $koleksis: paginator KoleksiPribadi (umumnya load relasi buku + kategori)
+--}}
 @extends('layouts.app')
 
 @section('content')

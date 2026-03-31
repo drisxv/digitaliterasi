@@ -9,8 +9,8 @@ use Illuminate\Validation\Rule;
 
 class KategoriController extends Controller
 {
-    public function index(Request $request)
-    {
+    /** Menampilkan daftar kategori buku dengan pencarian dan jumlah buku terkait. */
+    public function index(Request $request){
         $this->authorizeRole();
 
         $search = trim((string) $request->string('search'));
@@ -26,6 +26,7 @@ class KategoriController extends Controller
         return view('kategoribuku.index', compact('kategoris'));
     }
 
+    /** Menampilkan detail kategori beserta sebagian daftar buku di dalamnya. */
     public function show(Kategori $kategori)
     {
         $this->authorizeRole();
@@ -38,6 +39,7 @@ class KategoriController extends Controller
         return view('kategoribuku.show', compact('kategori'));
     }
 
+    /** Menampilkan form tambah kategori buku. */
     public function create()
     {
         $this->authorizeRole();
@@ -45,6 +47,7 @@ class KategoriController extends Controller
         return view('kategoribuku.create');
     }
 
+    /** Menyimpan kategori buku baru ke database. */
     public function store(Request $request)
     {
         $this->authorizeRole();
@@ -56,6 +59,7 @@ class KategoriController extends Controller
             ->with('success', 'Kategori buku berhasil ditambahkan.');
     }
 
+    /** Menampilkan form edit untuk kategori buku yang dipilih. */
     public function edit(Kategori $kategori)
     {
         $this->authorizeRole();
@@ -63,6 +67,7 @@ class KategoriController extends Controller
         return view('kategoribuku.edit', compact('kategori'));
     }
 
+    /** Memperbarui data kategori buku yang dipilih. */
     public function update(Request $request, Kategori $kategori)
     {
         $this->authorizeRole();
@@ -74,6 +79,7 @@ class KategoriController extends Controller
             ->with('success', 'Kategori buku berhasil diperbarui.');
     }
 
+    /** Menghapus kategori jika belum dipakai oleh data buku mana pun. */
     public function destroy(Kategori $kategori)
     {
         $this->authorizeRole();
@@ -91,6 +97,7 @@ class KategoriController extends Controller
             ->with('success', 'Kategori buku berhasil dihapus.');
     }
 
+    /** Memastikan hanya admin atau petugas yang dapat mengelola kategori. */
     private function authorizeRole(): void
     {
         if (!Auth::check() || !in_array(Auth::user()->level, ['admin', 'petugas'])) {
@@ -98,6 +105,7 @@ class KategoriController extends Controller
         }
     }
 
+    /** Memvalidasi input kategori dan menjaga nama kategori tetap unik. */
     private function validateKategori(Request $request, ?Kategori $kategori = null): array
     {
         return $request->validate([

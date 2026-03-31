@@ -1,3 +1,15 @@
+{{--
+    Halaman detail kategori.
+
+    Kegunaan:
+    - Menampilkan informasi kategori dan jumlah buku.
+    - Menampilkan daftar buku yang menggunakan kategori tersebut.
+    - Aksi: edit dan hapus kategori.
+
+    Route: `kategori.show`
+    Data:
+    - $kategori: model Kategori (biasanya sudah load relasi `bukus` + withCount('bukus'))
+--}}
 @extends('layouts.app')
 
 @section('content')

@@ -1,3 +1,11 @@
+{{--
+    Halaman Login.
+
+    Kegunaan:
+    - Form autentikasi user menggunakan `username` + `password`.
+    - Submit ke route `login` (Fortify/Laravel auth).
+    - Link ke halaman register.
+--}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

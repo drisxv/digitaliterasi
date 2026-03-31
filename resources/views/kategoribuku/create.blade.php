@@ -1,3 +1,12 @@
+{{--
+    Halaman tambah kategori.
+
+    Kegunaan:
+    - Menampilkan form untuk membuat kategori buku baru.
+    - Submit ke route `kategori.store`.
+
+    Akses: `admin` dan `petugas`.
+--}}
 @extends('layouts.app')
 
 @section('content')

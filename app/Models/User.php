@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Model User
+ *
+ * Mewakili pengguna aplikasi (tabel `users`) untuk autentikasi dan profil.
+ * Field penting:
+ * - `nama_lengkap`, `username`, `email`, `alamat`
+ * - `level` untuk peran/otorisasi (mis. admin/petugas/anggota)
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -50,16 +58,25 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Relasi: user memiliki banyak transaksi peminjaman.
+     */
     public function peminjaman(): HasMany
     {
         return $this->hasMany(Peminjaman::class, 'user_id');
     }
 
+    /**
+     * Relasi: user memiliki banyak ulasan buku.
+     */
     public function ulasans(): HasMany
     {
         return $this->hasMany(UlasanBuku::class, 'user_id');
     }
 
+    /**
+     * Relasi: buku-buku favorit/koleksi pribadi yang dimiliki user.
+     */
     public function koleksiPribadi(): HasMany
     {
         return $this->hasMany(KoleksiPribadi::class, 'user_id');

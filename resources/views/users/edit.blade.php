@@ -1,3 +1,14 @@
+{{--
+    Halaman edit pengguna (admin).
+
+    Kegunaan:
+    - Memperbarui data akun user tertentu.
+    - Submit ke route `user.update`.
+
+    Akses: `admin`.
+    Data:
+    - $user: User yang diedit
+--}}
 @extends('layouts.app')
 
 @section('content')

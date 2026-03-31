@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LaporanController extends Controller
 {
+    /** Menampilkan daftar laporan peminjaman dengan filter pencarian dan status. */
     public function index(Request $request)
     {
         $this->authorizeStaff();
@@ -24,6 +25,7 @@ class LaporanController extends Controller
         return view('laporan.index', compact('pinjamans', 'status'));
     }
 
+    /** Mengekspor data laporan peminjaman yang sedang difilter ke file PDF. */
     public function exportPdf(Request $request)
     {
         $this->authorizeStaff();
@@ -45,6 +47,7 @@ class LaporanController extends Controller
         return $pdf->download('laporan-peminjaman-' . now()->format('Ymd-His') . '.pdf');
     }
 
+    /** Menyusun query dasar laporan peminjaman beserta filter pencarian dan status. */
     private function buildQuery(string $search, string $status)
     {
         return Peminjaman::with(['user', 'buku.kategori'])
@@ -65,6 +68,7 @@ class LaporanController extends Controller
             });
     }
 
+    /** Memastikan hanya admin atau petugas yang dapat mengakses laporan. */
     private function authorizeStaff(): void
     {
         if (!Auth::check() || !in_array(Auth::user()->level, ['admin', 'petugas'], true)) {

@@ -1,3 +1,12 @@
+{{--
+    Halaman welcome bawaan Laravel.
+
+    Kegunaan:
+    - Default landing page Laravel (starter).
+    - Pada aplikasi ini, beranda setelah login memakai `buku.index` (lihat routes/web.php).
+
+    Catatan: file ini bisa dibiarkan sebagai default atau dihapus jika tidak dipakai.
+--}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>

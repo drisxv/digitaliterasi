@@ -13,6 +13,7 @@ class UserController extends Controller
 {
     use PasswordValidationRules;
 
+    /** Menampilkan daftar pengguna dengan fitur pencarian untuk admin. */
     public function index(Request $request)
     {
         $this->authorizeAdmin();
@@ -35,6 +36,7 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+    /** Menampilkan form tambah pengguna baru. */
     public function create()
     {
         $this->authorizeAdmin();
@@ -42,6 +44,7 @@ class UserController extends Controller
         return view('users.create');
     }
 
+    /** Menyimpan data pengguna baru yang dibuat oleh admin. */
     public function store(Request $request)
     {
         $this->authorizeAdmin();
@@ -53,6 +56,7 @@ class UserController extends Controller
             ->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
+    /** Menampilkan form edit untuk pengguna selain admin yang sedang login. */
     public function edit(User $user)
     {
         $this->authorizeAdmin();
@@ -61,6 +65,7 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    /** Memperbarui data pengguna dan password bila diisi. */
     public function update(Request $request, User $user)
     {
         $this->authorizeAdmin();
@@ -81,6 +86,7 @@ class UserController extends Controller
             ->with('success', 'Pengguna berhasil diperbarui.');
     }
 
+    /** Menghapus data pengguna selain akun admin yang sedang login. */
     public function destroy(User $user)
     {
         $this->authorizeAdmin();
@@ -93,6 +99,7 @@ class UserController extends Controller
             ->with('success', 'Pengguna berhasil dihapus.');
     }
 
+    /** Memastikan hanya admin yang dapat mengakses manajemen pengguna. */
     private function authorizeAdmin(): void
     {
         if (!Auth::check() || Auth::user()->level !== 'admin') {
@@ -100,6 +107,7 @@ class UserController extends Controller
         }
     }
 
+    /** Mencegah admin mengubah atau menghapus akun miliknya sendiri. */
     private function preventSelfMutation(User $user): void
     {
         if ((int) $user->id === (int) Auth::id()) {
@@ -107,6 +115,7 @@ class UserController extends Controller
         }
     }
 
+    /** Memvalidasi data saat admin membuat pengguna baru. */
     private function validateStore(Request $request): array
     {
         return $request->validate([
@@ -119,6 +128,7 @@ class UserController extends Controller
         ]);
     }
 
+    /** Memvalidasi data saat admin memperbarui pengguna yang sudah ada. */
     private function validateUpdate(Request $request, User $user): array
     {
         return $request->validate([

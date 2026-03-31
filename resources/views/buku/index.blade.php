@@ -1,3 +1,16 @@
+{{--
+        Halaman daftar buku (koleksi).
+
+        Kegunaan:
+        - Menampilkan list buku + pencarian `search`.
+        - UI berbeda berdasarkan level:
+            - `pengguna`: grid kartu buku.
+            - `admin/petugas`: tabel + tombol aksi (detail, edit, hapus) dan tombol tambah buku.
+
+        Route: `buku.index`
+        Data:
+        - $bukus: paginator/collection Buku (dengan relasi kategori bila tersedia)
+--}}
 @extends('layouts.app')
 
 @section('content')

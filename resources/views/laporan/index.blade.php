@@ -1,3 +1,16 @@
+{{--
+    Halaman laporan peminjaman.
+
+    Kegunaan:
+    - Menampilkan seluruh data peminjaman (untuk admin/petugas).
+    - Filter/pencarian via query `search` dan `status`.
+    - Tombol "Generate Laporan" mengarah ke export PDF dengan parameter filter yang sama.
+
+    Route: `laporan.index`
+    Akses: `admin` dan `petugas`.
+    Data:
+    - $pinjamans: paginator Peminjaman (umumnya load relasi user, buku, kategori)
+--}}
 @extends('layouts.app')
 
 @section('content')

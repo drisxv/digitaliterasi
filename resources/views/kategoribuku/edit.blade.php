@@ -1,3 +1,14 @@
+{{--
+    Halaman edit kategori.
+
+    Kegunaan:
+    - Menampilkan form untuk memperbarui kategori buku.
+    - Submit ke route `kategori.update`.
+
+    Akses: `admin` dan `petugas`.
+    Data:
+    - $kategori: Kategori yang diedit
+--}}
 @extends('layouts.app')
 
 @section('content')

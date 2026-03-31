@@ -1,3 +1,16 @@
+{{--
+    Halaman daftar peminjaman user.
+
+    Kegunaan:
+    - Menampilkan riwayat peminjaman buku milik user login.
+    - Klik item membuka `buku.show`.
+    - Jika status masih `dipinjam` dan buku punya isi, user bisa baca isi dan kembalikan.
+
+    Route: `peminjaman.index`
+    Akses: `pengguna`.
+    Data:
+    - $pinjamans: paginator Peminjaman (umumnya load relasi buku, kategori, isiBuku)
+--}}
 @extends('layouts.app')
 
 @section('content')

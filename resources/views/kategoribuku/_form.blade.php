@@ -1,3 +1,15 @@
+{{--
+    Partial form kategori.
+
+    Kegunaan:
+    - Input `nama_kategori` untuk create/edit kategori.
+
+    Dipakai oleh:
+    - `kategoribuku.create` dan `kategoribuku.edit`
+
+    Data:
+    - $kategori (opsional): Kategori yang sedang diedit
+--}}
 <div class="grid grid-cols-1 gap-6">
     <div>
         <label class="block text-[10px] font-black uppercase tracking-widest text-gray-600 mb-2">Nama Kategori</label>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoritController extends Controller
 {
+    /** Menampilkan daftar buku favorit milik pengguna. */
     public function index()
     {
         $this->authorizePengguna();
@@ -20,6 +21,7 @@ class FavoritController extends Controller
         return view('favorit.index', compact('koleksis'));
     }
 
+    /** Menambahkan buku ke koleksi favorit pengguna jika belum ada. */
     public function store(Buku $buku)
     {
         $this->authorizePengguna();
@@ -34,6 +36,7 @@ class FavoritController extends Controller
             ->with('success', 'Buku berhasil ditambahkan ke favorit.');
     }
 
+    /** Menghapus buku dari koleksi favorit pengguna. */
     public function destroy(Buku $buku)
     {
         $this->authorizePengguna();
@@ -47,6 +50,7 @@ class FavoritController extends Controller
             ->with('success', 'Buku berhasil dihapus dari favorit.');
     }
 
+    /** Memastikan hanya pengguna level pengguna yang bisa mengelola favorit. */
     private function authorizePengguna(): void
     {
         if (!Auth::check() || Auth::user()->level !== 'pengguna') {
